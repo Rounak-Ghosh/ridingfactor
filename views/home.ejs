@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XFACTOR</title>
+    <link rel="icon" type="image/x-icon" href="../public/image/logo.PNG">
+    <link rel="stylesheet" href="../public/style.css">
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <img class="logo" src="../public/image/logo.PNG">
+        <div class="logo">XFACTOR</div>
+        <ul class="menu">
+            <div class="mobile-buttons">
+              <% if (isAuthenticated) { %>
+                <button id="logoutButton" class="buttons" onclick="userLogout()">Logout</button>
+              <% } else { %>
+                <button id="registerButton" class="buttons" onclick="userRegister()">Register</button>
+                <button id="loginButton" class="buttons" onclick="userLogin()">Login</button>
+              <% } %>
+                <!-- <button id="registerLogin" class="buttons" onclick="userRegister()" type="button">Register</button>
+                <button id="registerLogin" class="buttons" onclick="userLogin()" type="button">Login</button>
+              -->
+            </div>
+            <li><a class="mobile" href="/">Home</a></li>
+            <li><a class="mobile" href="#">About Us</a></li>
+            <li><a class="mobile" href="#">Upcoming Rides</a></li>
+            <li><a class="mobile" href="#">Stories</a></li>
+            <li><a class="mobile" href="#">Merchandise</a></li>
+            <li><a class="mobile" href="#">Contact Us</a></li>
+            <% if (isAuthenticated) { %>
+              <button id="logoutButton" class="buttons desktop" onclick="userLogout()">Logout</button>
+            <% } else { %>
+              <button id="registerButton" class="buttons desktop" onclick="userRegister()">Register</button>
+              <button id="loginButton" class="buttons desktop" onclick="userLogin()">Login</button>
+            <% } %>
+            <!-- <button id="registerLogin" class="buttons" onclick="userRegister()" type="button">Register</button>
+            <button id="registerLogin" class="buttons" onclick="userRegister()" type="button">Login</button>
+            -->
+            </ul>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>   
+    </header>
+
+    <!-- text strip -->
+    <div class="text-strip">
+        <p>
+          🏍️🏍️ Next ride is scheduled for March 13, 2025!! 🏍️🏍️ &emsp; &emsp; &emsp; &emsp;
+            &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+            &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 
+            ✨✨ Stay tuned! We will go live soon ✨✨ &emsp; &emsp; &emsp; &emsp;
+            &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+            &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+            🏗️🏗️ Website is under development 🏗️🏗️
+        </p>
+    </div>
+
+    <!-- slider -->
+    <div class="slider">
+        <div class="list">
+            <div class="item active">
+                <img src="../public/image/img1.JPG">
+                <div class="content">
+                    <p>NOV 24</p>
+                    <h2>KANKRAJHOR</h2>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../public/image/img2.jpg">
+                <div class="content">
+                    <p>JAN 25</p>
+                    <h2>DUBLAGADI</h2>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../public/image/img3.JPG">
+                <div class="content">
+                    <p>MAR 25</p>
+                    <h2>RANCHI</h2>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../public/image/img4.jpg">
+                <div class="content">
+                    <p>JUN 25</p>
+                    <h2>KEONJHAR</h2>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../public/image/img5.jpg">
+                <div class="content">
+                    <p>SEP 25</p>
+                    <h2>DARINGBADI</h2>
+                </div>
+            </div>
+        </div>
+        <!-- button arrows -->
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <!-- thumbnail -->
+        <div class="thumbnail">
+            <div class="item active">
+                <img src="../public/image/img1.JPG">
+                <div class="content">
+                    KANKRAJHOR
+                </div>
+            </div>
+            <div class="item">
+                <img src="../public/image/img2.jpg">
+                <div class="content">
+                    DUBLAGADI
+                </div>
+            </div>
+            <div class="item">
+                <img src="../public/image/img3.JPG">
+                <div class="content">
+                    RANCHI
+                </div>
+            </div>
+            <div class="item">
+                <img src="../public/image/img4.jpg">
+                <div class="content">
+                    KEONJHAR
+                </div>
+            </div>
+            <div class="item">
+                <img src="../public/image/img5.jpg">
+                <div class="content">
+                    DARINGBADI
+                </div>
+            </div>
+        </div>
+
+        <!-- touch areas -->
+        <div id="left-half"></div>
+        <div id="right-half"></div>
+    </div>
+
+    <!-- About Us section -->
+    <section id="about-us" class="about-us">
+        <section id="about-us" class="about-us">
+            <div class="about-us-container">
+                <div class="about-us-image">
+                    <img src="../public/image/about1.jpg" alt="Dirt Bike Illustration">
+                </div>
+                <div class="about-us-content">
+                    <h2>About Us</h2>
+                    <p>Welcome to <strong>XFACTOR</strong>, the ultimate motorcycle riding group! We are a community of passionate riders who love to explore new places and share our adventures. Whether you're a seasoned rider or just starting out, you'll find a home here with us. Join us on our next ride and experience the thrill of the open road!</p>
+                    <p>So gear up, rev your engines, and let's hit the road together!</p>
+                    <p> --<< Join Us button >>-- </p>
+                </div>
+            </div>
+    </section>
+
+    <!-- Merchandise section -->
+    <section id="merchandise" class="merchandise">
+        <h2>Merchandise</h2>
+        <div class="merchandise-container">
+            <div class="product">
+                <img src="../public/image/products/shoe_top1.png" alt="Shoes">
+                <h3>Shoes</h3>
+                <p>High-quality riding shoes for maximum comfort and safety.</p>
+            </div>
+            <div class="product">
+                <img src="../public/image/products/tshirt_front1.png" alt="T-Shirt">
+                <h3>T-Shirt</h3>
+                <p>Stylish and comfortable t-shirts for everyday wear.</p>
+            </div>
+            <div class="product">
+                <img src="../public/image/products/sweatshirt_front1.png" alt="Sweatshirt">
+                <h3>Sweatshirt</h3>
+                <p>Durable and protective sweatshirts for all weather conditions.</p>
+            </div>
+            <div class="product">
+                <img src="../public/image/products/cap_front2.png" alt="Cap">
+                <h3>Cap</h3>
+                <p>Comfortable and protective cap for a better view.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="../public/app.js"></script>
+</body>
+</html>
