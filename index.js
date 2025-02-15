@@ -14,6 +14,10 @@ require('dotenv').config();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+// Serve static files from the "public" directory
+app.use('/public', express.static(path.join(__dirname, 'public')));
+
+
 const connectToMongoDb = () => {
   mongoose
     .connect(process.env.MONGODB_URI)
