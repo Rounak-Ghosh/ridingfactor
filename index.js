@@ -7,6 +7,7 @@ const protectedRouter = require('./src/controllers/protected-route');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 
 require('dotenv').config();
 
