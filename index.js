@@ -22,6 +22,14 @@ const connectToMongoDb = () => {
 };
 connectToMongoDb();
 
+app.use(cors(
+    {
+        origin: ["https://ridingfactor.vercel.app/"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
+
 app.use(
   session({
     resave: false,
