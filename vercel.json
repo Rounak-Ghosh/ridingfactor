@@ -20,8 +20,12 @@
         "dest": "frontend/public/$1"
       },
       {
-        "src": "/auth/google",
-        "dest": "backend/src/controllers/auth/google.js"
+        "src": "/auth/(.*)",
+        "dest": "/backend/index.js"
+      },
+      {
+        "src": "/protected/(.*)",
+        "dest": "/backend/index.js"
       },
       {
         "src": "/(.*)",
