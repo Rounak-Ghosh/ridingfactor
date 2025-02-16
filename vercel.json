@@ -13,7 +13,7 @@
     "routes": [
     {
       "src": "/auth/(.*)",
-      "dest": "/backend/views/auth/$1"
+      "dest": "/auth/google/$1"
     },
     {
       "src": "/protected/(.*)",
