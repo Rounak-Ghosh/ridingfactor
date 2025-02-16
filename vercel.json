@@ -13,7 +13,7 @@
     "routes": [
     {
       "src": "/auth/(.*)",
-      "dest": "/auth/google/$1"
+      "dest": "/"
     },
     {
       "src": "/protected/(.*)",
@@ -25,7 +25,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/"
+      "dest": "/frontend/index.html"
     }
   ]
   }
