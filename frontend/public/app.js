@@ -90,16 +90,17 @@ function showNextImage() {
 
 function userRegister() {
     //location.href = "http://www.google.com";
-    window.open('http://localhost:3000/auth/google/', '_blank', 'width=500,height=600');
+    //window.open('http://localhost:3000/auth/google/', '_blank', 'width=500,height=600');
+    window.open('https://ridingfactorfullweb.vercel.app/auth/google/', '_blank', 'width=500,height=600');
 }
 
 function userLogin() {
     //location.href = "http://www.google.com";
-    window.open('http://localhost:3000/auth/google/', '_blank', 'width=500,height=600');
+    window.open('https://ridingfactorfullweb.vercel.app/auth/google/', '_blank', 'width=500,height=600');
 }
 
 function userLogout() {
     //location.href = "http://www.google.com";
     //window.open('http://localhost:3000/auth/google/signout');
-    window.location.href = 'http://localhost:3000/auth/google/signout';
+    window.location.href = 'https://ridingfactorfullweb.vercel.app/auth/google/signout';
 }
