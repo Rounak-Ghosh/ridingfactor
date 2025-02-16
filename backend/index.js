@@ -17,6 +17,13 @@ app.set('views', path.join(__dirname, 'views'));
 // Serve static files from the "public" directory
 app.use('/public', express.static(path.join(__dirname, '../frontend/public')));
 
+app.use(cors(
+  {
+      origin: ["https://ridingfactor-sandy.vercel.app"],
+      methods: ["POST", "GET"],
+      credentials: true
+  }
+));
 
 const connectToMongoDb = () => {
   mongoose
