@@ -20,6 +20,10 @@
         "dest": "frontend/public/$1"
       },
       {
+        "src": "/auth/google",
+        "dest": "backend/src/controllers/auth/google.js"
+      },
+      {
         "src": "/(.*)",
         "dest": "backend/server.js"
       }

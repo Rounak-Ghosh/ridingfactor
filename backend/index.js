@@ -38,7 +38,7 @@ connectToMongoDb();
 
 app.use(cors(
     {
-        origin: ["https://ridingfactor.vercel.app/"],
+        origin: ["https://ridingfactorfullweb.vercel.app/"],
         methods: ["POST", "GET"],
         credentials: true
     }
