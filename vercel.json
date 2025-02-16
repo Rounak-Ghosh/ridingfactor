@@ -11,25 +11,21 @@
       }
     ],
     "routes": [
-      {
-        "src": "/",
-        "dest": "frontend/index.html"
-      },
-      {
-        "src": "/public/(.*)",
-        "dest": "frontend/public/$1"
-      },
-      {
-        "src": "/auth/(.*)",
-        "dest": "/backend/index.js"
-      },
-      {
-        "src": "/protected/(.*)",
-        "dest": "/backend/index.js"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "backend/server.js"
-      }
-    ]
+    {
+      "src": "/auth/(.*)",
+      "dest": "/backend/index.js"
+    },
+    {
+      "src": "/protected/(.*)",
+      "dest": "/backend/index.js"
+    },
+    {
+      "src": "/public/(.*)",
+      "dest": "/frontend/public/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/index.html"
+    }
+  ]
   }
