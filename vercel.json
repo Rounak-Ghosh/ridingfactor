@@ -11,17 +11,12 @@
       }
     ],
     "routes": [
-    {
-      "src": "/protected/(.*)",
-      "dest": "/backend/index.js"
-    },
-    {
-      "src": "/public/(.*)",
-      "dest": "/frontend/public/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/index.html"
-    }
+    { "src": "/auth/(.*)", "dest": "/backend/index.js" },
+    { "src": "/auth/google/callback", "dest": "/backend/index.js" },
+    { "src": "/auth/success", "dest": "/backend/home.ejs" },
+    { "src": "/auth/failure", "dest": "/backend/home.ejs" },
+    { "src": "/protected/(.*)", "dest": "/backend/index.js" },
+    { "src": "/public/(.*)", "dest": "/frontend/public/$1" },
+    { "src": "/(.*)", "dest": "/frontend/index.html" }
   ]
-  }
+}
