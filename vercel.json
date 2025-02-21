@@ -12,8 +12,8 @@
     ],
     "routes": [
     { "src": "/auth/(.*)", "dest": "/backend/index.js" },
-    { "src": "/success", "dest": "/backend/home.ejs" },
-    { "src": "/failure", "dest": "/backend/home.ejs" },
+    { "src": "/auth/google/success", "dest": "/backend/home.ejs" },
+    { "src": "/auth/google/failure", "dest": "/backend/home.ejs" },
     { "src": "/protected/(.*)", "dest": "/backend/index.js" },
     { "src": "/public/(.*)", "dest": "/frontend/public/$1" },
     { "src": "/(.*)", "dest": "/frontend/index.html" }
