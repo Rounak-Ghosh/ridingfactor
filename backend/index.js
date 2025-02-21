@@ -19,7 +19,7 @@ app.use('/public', express.static(path.join(__dirname, '../frontend/public')));
 
 app.use(cors(
   {
-      origin: ["https://ridingfactor-sandy.vercel.app"],
+      origin: ["https://ridingfactorfullweb.vercel.app"],
       methods: ["POST", "GET"],
       credentials: true
   }
