@@ -13,6 +13,9 @@
     "routes": [
     {
       "src": "/auth/(.*)",
+      "dest": "/backend/index.js"
+    },{
+      "src": "/(.*)/success",
       "dest": "/frontend/index.html"
     },
     {
