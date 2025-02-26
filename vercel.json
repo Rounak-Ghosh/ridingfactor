@@ -15,8 +15,8 @@
       "src": "/auth/(.*)",
       "dest": "/backend/index.js"
     },{
-      "src": "/(.*)/success",
-      "dest": "/frontend/index.html"
+      "src": "/home",
+      "dest": "/backend/views/home.ejs"
     },
     {
       "src": "/protected/(.*)",
