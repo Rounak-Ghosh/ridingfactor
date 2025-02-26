@@ -41,5 +41,17 @@
       "src": "/(.*)",
       "dest": "/frontend/index.html"
     }
+  ],
+    "redirects": [
+    {
+      "source": "/auth/google/callback",
+      "destination": "/auth/google/success",
+      "statusCode": 302
+    },
+    {
+      "source": "/auth/google/error",
+      "destination": "/error",
+      "statusCode": 302
+    }
   ]
   }
