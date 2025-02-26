@@ -14,9 +14,20 @@
     {
       "src": "/auth/(.*)",
       "dest": "/backend/index.js"
-    },{
+    },
+    {
       "src": "/home",
       "dest": "/backend/views/home.ejs"
+    },
+    {
+      "src": "/auth/google/success",
+      "has": [
+        {
+          "type": "query",
+          "key": "redirect"
+        }
+      ],
+      "destination": "/auth/google/success?redirect=:redirect"
     },
     {
       "src": "/protected/(.*)",
