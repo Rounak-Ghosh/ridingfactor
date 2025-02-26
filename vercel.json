@@ -27,7 +27,7 @@
           "key": "redirect"
         }
       ],
-      "destination": "/auth/google/success?redirect=:redirect"
+      "dest": "/auth/google/success?redirect=:redirect"
     },
     {
       "src": "/protected/(.*)",
