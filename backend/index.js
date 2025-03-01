@@ -39,6 +39,7 @@ const connectToMongoDb = () => {
 };
 connectToMongoDb();
 
+// Connect to Redis
 const redisClient = redis.createClient({
   url: process.env.REDIS_URL,
   legacyMode: true
