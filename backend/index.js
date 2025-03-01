@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const session = require('express-session');
+const redis = require('redis');
+const RedisStore = require('connect-redis')(session);
 const authRouter = require('./src/controllers/google-auth');
 const facebookRouter = require('./src/controllers/facebook-auth');
 const protectedRouter = require('./src/controllers/protected-route');
@@ -25,6 +27,7 @@ app.use(cors(
   }
 ));
 
+// Connect to MongoDb
 const connectToMongoDb = () => {
   mongoose
     .connect(process.env.MONGODB_URI)
@@ -36,11 +39,31 @@ const connectToMongoDb = () => {
 };
 connectToMongoDb();
 
+const redisClient = redis.createClient({
+  url: process.env.REDIS_URL,
+  legacyMode: true
+});
+
+redisClient.on('error', function (err) {
+  console.log('Could not establish a connection with redis. ' + err);
+});
+
+redisClient.on('connect', function () {
+  console.log('Connected to redis successfully');
+});
+
+redisClient.connect().then(() => {
 app.use(
   session({
+    store: new RedisStore({ client: redisClient }),
     resave: false,
     saveUninitialized: true,
     secret: process.env.SESSION_SECRET,
+    cookie: {
+      secure: false, // if true, only transmit cookie over https
+      httpOnly: true, // if true, prevents client side JS from reading the cookie
+      maxAge: 1000 * 60 * 10 // session max age in milliseconds
+    }
   })
 );
 
@@ -69,4 +92,6 @@ app.use('/protected', protectedRouter);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log('App listening on port ' + port));
-  
+}).catch((err) => {
+  console.error('Failed to connect to Redis:', err);
+});
