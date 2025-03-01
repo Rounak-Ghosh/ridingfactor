@@ -40,14 +40,18 @@
     {
       "src": "/(.*)",
       "dest": "/frontend/index.html"
+    }
+  ],
+    "redirects": [
+    {
+      "source": "/auth/google/callback",
+      "destination": "/auth/google/success",
+      "statusCode": 302
     },
     {
-      "src": "/auth/google/callback",
-      "dest": "/auth/google/success"
-    },
-    {
-      "src": "/auth/google/error",
-      "dest": "/error"
+      "source": "/auth/google/error",
+      "destination": "/error",
+      "statusCode": 302
     }
   ]
-}
+  }
