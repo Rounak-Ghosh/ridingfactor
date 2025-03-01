@@ -27,18 +27,6 @@ app.use(cors(
   }
 ));
 
-// Connect to MongoDb
-const connectToMongoDb = () => {
-  mongoose
-    .connect(process.env.MONGODB_URI)
-    .then(() => console.log('Connected to MongoDb...'))
-    .catch((error) => {
-      console.log('Error in connecting to mongoDB ' + error);
-      throw error;
-    });
-};
-connectToMongoDb();
-
 // Connect to Redis
 const redisClient = redis.createClient({
   url: process.env.REDIS_URL,
@@ -67,6 +55,18 @@ redisClient.connect().then(() => {
       }
     })
   );
+
+// Connect to MongoDb
+const connectToMongoDb = () => {
+  mongoose
+    .connect(process.env.MONGODB_URI)
+    .then(() => console.log('Connected to MongoDb...'))
+    .catch((error) => {
+      console.log('Error in connecting to mongoDB ' + error);
+      throw error;
+    });
+};
+connectToMongoDb();
 
   app.use(passport.initialize());
   app.use(passport.session());
