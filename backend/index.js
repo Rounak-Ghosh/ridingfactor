@@ -53,45 +53,45 @@ redisClient.on('connect', function () {
 });
 
 redisClient.connect().then(() => {
-app.use(
-  session({
-    store: new RedisStore({ client: redisClient }),
-    resave: false,
-    saveUninitialized: true,
-    secret: process.env.SESSION_SECRET,
-    cookie: {
-      secure: false, // if true, only transmit cookie over https
-      httpOnly: true, // if true, prevents client side JS from reading the cookie
-      maxAge: 1000 * 60 * 10 // session max age in milliseconds
-    }
-  })
-);
+  app.use(
+    session({
+      store: new RedisStore({ client: redisClient }),
+      resave: false,
+      saveUninitialized: true,
+      secret: process.env.SESSION_SECRET,
+      cookie: {
+        secure: false, // if true, only transmit cookie over https
+        httpOnly: true, // if true, prevents client side JS from reading the cookie
+        maxAge: 1000 * 60 * 10 // session max age in milliseconds
+      }
+    })
+  );
 
-app.use(passport.initialize());
-app.use(passport.session());
+  app.use(passport.initialize());
+  app.use(passport.session());
 
-passport.serializeUser(function (user, cb) {
-  cb(null, user);
-});
-passport.deserializeUser(function (obj, cb) {
-  cb(null, obj);
-});
+  passport.serializeUser(function (user, cb) {
+    cb(null, user);
+  });
+  passport.deserializeUser(function (obj, cb) {
+    cb(null, obj);
+  });
 
-app.get('/', (req, res) => {
-  //res.render('auth');
-  console.log(req.isAuthenticated());
-  const isAuthenticated = req.isAuthenticated(); 
-  res.render('home', { isAuthenticated });
-});
+  app.get('/', (req, res) => {
+    //res.render('auth');
+    console.log(req.isAuthenticated());
+    const isAuthenticated = req.isAuthenticated(); 
+    res.render('home', { isAuthenticated });
+  });
 
-app.use('/public/', express.static('public'));
-app.use('/auth/google', authRouter);
-//app.use('/auth/facebook', facebookRouter);
-//app.use('/auth/github', githubRouter);
-app.use('/protected', protectedRouter);
+  app.use('/public/', express.static('public'));
+  app.use('/auth/google', authRouter);
+  //app.use('/auth/facebook', facebookRouter);
+  //app.use('/auth/github', githubRouter);
+  app.use('/protected', protectedRouter);
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log('App listening on port ' + port));
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => console.log('App listening on port ' + port));
 }).catch((err) => {
   console.error('Failed to connect to Redis:', err);
 });
